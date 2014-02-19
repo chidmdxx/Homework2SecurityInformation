@@ -24,5 +24,15 @@ namespace Homework2InformationSecrity
         {
             InitializeComponent();
         }
+
+        private void playfairButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void vigenereButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
