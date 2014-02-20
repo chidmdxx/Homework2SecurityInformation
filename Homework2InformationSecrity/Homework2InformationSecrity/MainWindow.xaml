@@ -3,20 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
-        <Style x:Key="textblockStyle" TargetType="TextBlock">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="16"/>
-        </Style>
-        <Style x:Key="buttonStyle" TargetType="Button">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="FontSize" Value="16"/>
-        </Style>
+        <ResourceDictionary>
+            <!-- Believe it or not the next line fixes a bug MS acknowledges -->
+            <Style TargetType="{x:Type Rectangle}" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/StyleDictionary.XAML" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>            
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -24,18 +23,14 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Style="{StaticResource textblockStyle}"  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+        <TextBlock   Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
             Key
         </TextBlock>
         <TextBox Name="key" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center"/>
-        <TextBlock Style="{StaticResource textblockStyle}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">
-            Plaintext
-        </TextBlock>
-        <TextBox Name="plaintext" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center"/>
-        <Button Style="{StaticResource buttonStyle}" Name="playfairButton" Grid.Row="2" Grid.Column="2" Click="playfairButton_Click">
+        <Button  Name="playfairButton" Grid.Row="1" Grid.Column="2" Click="playfairButton_Click">
             Playfair cipher
         </Button>
-        <Button Style="{StaticResource buttonStyle}" Name="vigenereButton" Grid.Row="2" Grid.Column="3" Click="vigenereButton_Click">
+        <Button  Name="vigenereButton" Grid.Row="1" Grid.Column="3" Click="vigenereButton_Click">
             Vigenere cipher
         </Button>
     </Grid>
