@@ -50,7 +50,7 @@ namespace Homework2InformationSecrity.View
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
             {
-                vignere.Cipher(text);
+                vignere.Decipher(text);
                 toPrint += string.Format("The cyphertext was: {0} \n", vignere.Ciphertext);
                 toPrint += string.Format("The plaintext is: {0} \n", vignere.Plaintext);
                 toPrint += string.Format("Using the key: {0} \n", vignere.Key);
