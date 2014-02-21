@@ -38,7 +38,7 @@ namespace Homework2InformationSecrity.View
                 toPrint += string.Format("The plaintext was: {0} \n", playfair.Plaintext);
                 toPrint += string.Format("The cyphertext is: {0} \n", playfair.Ciphertext);
                 toPrint += string.Format("Using the key: {0} \n", playfair.Key);
-                toPrint += string.Format("Using the matrix:\n", playfair.Key);
+                toPrint += string.Format("Using the matrix:\n");
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -49,6 +49,11 @@ namespace Homework2InformationSecrity.View
                     toPrint += string.Format("\n");
 
                 }
+                toPrint += string.Format("Using the following digrams \n");
+                foreach (var d in playfair.Digrams){
+                    toPrint += string.Format("{0} and {1} \n", d.First,d.Second);
+                }
+
                 result.Text = toPrint;
             }
         }
@@ -75,6 +80,13 @@ namespace Homework2InformationSecrity.View
                     toPrint += string.Format("\n");
 
                 }
+                toPrint += string.Format("Using the following digrams \n");
+                foreach (var d in playfair.Digrams)
+                {
+                    toPrint += string.Format("{0} and {1} \n", d.First, d.Second);
+                }
+
+
                 result.Text = toPrint;
             }
         }

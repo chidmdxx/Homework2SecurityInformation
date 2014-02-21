@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Homework2InformationSecrity.View.PlayfairWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="PlayfairWindow" Height="300" Width="500">
+        Title="PlayfairWindow" Height="600" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>

@@ -73,11 +73,11 @@ namespace Homework2InformationSecrity.Model
             {
                 col = count % 5;
                 row = count / 5;
-                letters = letters.Replace(letter, '-');
+                letters = letters.Replace(letter, '-'); //esto es una limitacion del replace(char,char) ya que no deja poner vacio en el segundo char
                 Matrix[row, col] = letter;
                 count++;
             }
-            letters = letters.Replace("-", "");
+            letters = letters.Replace("-", ""); //arregla la limitacion cambiando a vacio
             foreach (char letter in letters)
             {
                 col = count % 5;
@@ -175,7 +175,7 @@ namespace Homework2InformationSecrity.Model
             {
                 temp = new Digram();
                 first = work[i];
-                if (first.Equals(work[i + 1]) || i == work.Length - 1)
+                if (i == work.Length - 1 || first.Equals(work[i + 1]))
                 {
                     temp.First = first;
                     temp.Second = ExtraChar;
