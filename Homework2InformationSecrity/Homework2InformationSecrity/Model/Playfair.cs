@@ -134,6 +134,17 @@ namespace Homework2InformationSecrity.Model
         public string Decipher(string ciphertext)
         {
             Ciphertext = ciphertext;
+            Ciphertext = ciphertext.Replace('j', 'i');
+            foreach (var letter in Ciphertext)
+            {
+                int ascii = letter;
+                if (ascii < 97 || ascii > 122)
+                {
+                    Ciphertext = Ciphertext.Replace(letter, '-');
+                }
+            }
+            Ciphertext = Ciphertext.Replace("-", "");
+
             Plaintext = string.Empty;
             doDigrams(Ciphertext);
 
