@@ -24,6 +24,7 @@ namespace Homework2InformationSecrity
         public MainWindow()
         {
             InitializeComponent();
+            key.Focus();
         }
 
         private void playfairButton_Click(object sender, RoutedEventArgs e)

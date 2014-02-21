@@ -24,6 +24,7 @@ namespace Homework2InformationSecrity.View
         public VigenereWindow(string key)
         {
             InitializeComponent();
+            textbox.Focus();
             vignere = new Vigenere(key);
         }
 

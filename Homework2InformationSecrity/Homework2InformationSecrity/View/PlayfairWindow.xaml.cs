@@ -24,6 +24,7 @@ namespace Homework2InformationSecrity.View
         public PlayfairWindow(string key)
         {
             InitializeComponent();
+            textbox.Focus();
             playfair = new Playfair(key);
         }
 
