@@ -147,13 +147,13 @@ namespace Homework2InformationSecrity.Model
                 secondCordinate = getCordinate(pair.Second);
                 if (firstCordinate.Row == secondCordinate.Row)
                 {
-                    firstChar = Matrix[firstCordinate.Row, (firstCordinate.Column + 1) % 5];
-                    secondChar = Matrix[secondCordinate.Row, (secondCordinate.Column + 1) % 5];
+                    firstChar = Matrix[firstCordinate.Row, (firstCordinate.Column + 5 - 1) % 5];
+                    secondChar = Matrix[secondCordinate.Row, (secondCordinate.Column + 5 - 1) % 5];
                 }
                 else if (firstCordinate.Column == secondCordinate.Column)
                 {
-                    firstChar = Matrix[(firstCordinate.Row + 1) % 5, firstCordinate.Column];
-                    secondChar = Matrix[(secondCordinate.Row + 1) % 5, secondCordinate.Column];
+                    firstChar = Matrix[(firstCordinate.Row + 5 - 1) % 5, firstCordinate.Column];
+                    secondChar = Matrix[(secondCordinate.Row + 5 - 1) % 5, secondCordinate.Column];
                 }
                 else
                 {
