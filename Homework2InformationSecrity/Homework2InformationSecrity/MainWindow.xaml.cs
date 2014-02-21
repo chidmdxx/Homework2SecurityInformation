@@ -29,20 +29,34 @@ namespace Homework2InformationSecrity
         private void playfairButton_Click(object sender, RoutedEventArgs e)
         {
             string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
-            if (!string.IsNullOrEmpty(keystring))
+            if (!string.IsNullOrEmpty(keystring) && keystring.Cast<char>().Distinct().Count() == keystring.Length)
             {
                 PlayfairWindow window = new PlayfairWindow(keystring);
+                errordisplay.Text = string.Empty;
                 window.ShowDialog();
+            }
+            else if (string.IsNullOrEmpty(keystring))
+            {
+                errordisplay.Text = "The key cannot be empty";
+            }
+            else
+            {
+                errordisplay.Text = "The key cannot have repeated characters";
             }
         }
 
         private void vigenereButton_Click(object sender, RoutedEventArgs e)
         {
-            string keystring=string.IsNullOrEmpty(key.Text)?string.Empty:key.Text;
+            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
             if (!string.IsNullOrEmpty(keystring))
             {
                 VigenereWindow window = new VigenereWindow(keystring);
+                errordisplay.Text = string.Empty;
                 window.ShowDialog();
+            }
+            else
+            {
+                errordisplay.Text = "The key cannot be empty";
             }
         }
     }

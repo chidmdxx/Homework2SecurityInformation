@@ -57,8 +57,8 @@ namespace Homework2InformationSecrity.Model
                     ascii += k;
                     ascii %= 26;
                     ascii += 97;
-                }
-                Ciphertext = Ciphertext + (char)ascii;              
+                    Ciphertext = Ciphertext + (char)ascii;    
+                }        
             }
             return Ciphertext;
         }

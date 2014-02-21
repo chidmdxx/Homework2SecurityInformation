@@ -17,6 +17,7 @@
             Key
         </TextBlock>
         <TextBox Name="key" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center"/>
+        <TextBlock Name="errordisplay" TextWrapping="Wrap" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Red"/>
         <Button  Name="playfairButton" Grid.Row="1" Grid.Column="2" Click="playfairButton_Click">
             Playfair cipher
         </Button>
