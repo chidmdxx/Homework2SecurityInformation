@@ -65,7 +65,7 @@ namespace Homework2InformationSecrity.Model
         private void CreateMatrix()
         {
             Matrix = new char[5, 5];
-            string letters = "abcdefghijklmnopqrstuvwxyz";
+            string letters = "abcdefghiklmnopqrstuvwxyz";
             int count = 0;
             int col;
             int row;
@@ -73,10 +73,11 @@ namespace Homework2InformationSecrity.Model
             {
                 col = count % 5;
                 row = count / 5;
-                letters.Remove(letter);
+                letters = letters.Replace(letter, '-');
                 Matrix[row, col] = letter;
                 count++;
             }
+            letters = letters.Replace("-", "");
             foreach (char letter in letters)
             {
                 col = count % 5;
@@ -88,7 +89,16 @@ namespace Homework2InformationSecrity.Model
 
         public string Cipher(string plaintext)
         {
-            Plaintext = plaintext;
+            Plaintext = plaintext.Replace('j', 'i');
+            foreach (var letter in Plaintext)
+            {
+                int ascii = letter;
+                if (ascii < 97 || ascii > 122)
+                {
+                    Plaintext = Plaintext.Replace(letter, '-');
+                }
+            }
+            Plaintext = Plaintext.Replace("-", "");
             Ciphertext = string.Empty;
             doDigrams(Plaintext);
 
@@ -115,7 +125,7 @@ namespace Homework2InformationSecrity.Model
                     firstChar = Matrix[firstCordinate.Row, secondCordinate.Column];
                     secondChar = Matrix[secondCordinate.Row, firstCordinate.Column];
                 }
-                Ciphertext += firstChar + secondChar;
+                Ciphertext += string.Format("{0}{1}", firstChar, secondChar);
             }
 
             return Ciphertext;
@@ -150,7 +160,7 @@ namespace Homework2InformationSecrity.Model
                     firstChar = Matrix[firstCordinate.Row, secondCordinate.Column];
                     secondChar = Matrix[secondCordinate.Row, firstCordinate.Column];
                 }
-                Plaintext += firstChar + secondChar;
+                Plaintext += string.Format("{0}{1}", firstChar, secondChar);
             }
 
             return Plaintext;

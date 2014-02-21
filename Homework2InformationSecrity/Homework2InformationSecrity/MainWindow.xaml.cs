@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Homework2InformationSecrity.View;
 
 namespace Homework2InformationSecrity
 {
@@ -27,12 +28,22 @@ namespace Homework2InformationSecrity
 
         private void playfairButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
+            if (!string.IsNullOrEmpty(keystring))
+            {
+                PlayfairWindow window = new PlayfairWindow(keystring);
+                window.ShowDialog();
+            }
         }
 
         private void vigenereButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string keystring=string.IsNullOrEmpty(key.Text)?string.Empty:key.Text;
+            if (!string.IsNullOrEmpty(keystring))
+            {
+                VigenereWindow window = new VigenereWindow(keystring);
+                window.ShowDialog();
+            }
         }
     }
 }
