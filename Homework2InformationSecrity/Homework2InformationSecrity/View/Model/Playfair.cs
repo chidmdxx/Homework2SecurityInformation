@@ -57,6 +57,7 @@ namespace Homework2InformationSecrity.Model
         {
             Plaintext = string.Empty;
             Ciphertext = string.Empty;
+            Key = key;
             ExtraChar = extraChar;
             CreateMatrix();
         }
