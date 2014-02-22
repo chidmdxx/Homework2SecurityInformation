@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Homework2InformationSecrity.View;
+using System.Text.RegularExpressions;
 
 namespace Homework2InformationSecrity
 {
@@ -29,8 +30,8 @@ namespace Homework2InformationSecrity
 
         private void playfairButton_Click(object sender, RoutedEventArgs e)
         {
-            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text.Replace("j","i");
-            if (!string.IsNullOrEmpty(keystring) && keystring.Cast<char>().Distinct().Count() == keystring.Length)
+            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text.Replace("j", "i").ToLower();
+            if (!string.IsNullOrEmpty(keystring) && keystring.Cast<char>().Distinct().Count() == keystring.Length && Regex.IsMatch(keystring, "^[a-zA-Z0-9]+$"))
             {
                 PlayfairWindow window = new PlayfairWindow(keystring);
                 errordisplay.Text = string.Empty;
@@ -39,6 +40,10 @@ namespace Homework2InformationSecrity
             else if (string.IsNullOrEmpty(keystring))
             {
                 errordisplay.Text = "The key cannot be empty";
+            }
+            else if (!Regex.IsMatch(keystring, "^[a-zA-Z0-9]+$"))
+            {
+                errordisplay.Text = "The key cannot be non letter alements";
             }
             else
             {
@@ -49,11 +54,15 @@ namespace Homework2InformationSecrity
         private void vigenereButton_Click(object sender, RoutedEventArgs e)
         {
             string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
-            if (!string.IsNullOrEmpty(keystring))
+            if (!string.IsNullOrEmpty(keystring)  && Regex.IsMatch(keystring, "^[a-zA-Z0-9]+$"))
             {
                 VigenereWindow window = new VigenereWindow(keystring);
                 errordisplay.Text = string.Empty;
                 window.ShowDialog();
+            }
+            else if (!Regex.IsMatch(keystring, "^[a-zA-Z0-9]+$"))
+            {
+                errordisplay.Text = "The key cannot be non letter alements";
             }
             else
             {
