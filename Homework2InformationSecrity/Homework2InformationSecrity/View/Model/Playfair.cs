@@ -55,7 +55,6 @@ namespace Homework2InformationSecrity.Model
 
         public Playfair(string key, char extraChar = 'x')
         {
-            Key = key.Replace("j", "i");
             Plaintext = string.Empty;
             Ciphertext = string.Empty;
             ExtraChar = extraChar;

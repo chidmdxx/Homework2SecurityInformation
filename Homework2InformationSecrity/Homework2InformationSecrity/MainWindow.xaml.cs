@@ -29,7 +29,7 @@ namespace Homework2InformationSecrity
 
         private void playfairButton_Click(object sender, RoutedEventArgs e)
         {
-            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
+            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text.Replace("j","i");
             if (!string.IsNullOrEmpty(keystring) && keystring.Cast<char>().Distinct().Count() == keystring.Length)
             {
                 PlayfairWindow window = new PlayfairWindow(keystring);
