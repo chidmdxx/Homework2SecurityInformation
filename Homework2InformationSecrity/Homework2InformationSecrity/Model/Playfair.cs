@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Homework2InformationSecrity.Model
@@ -144,7 +145,7 @@ namespace Homework2InformationSecrity.Model
                 }
             }
             Ciphertext = Ciphertext.Replace("-", "");
-
+            
             Plaintext = string.Empty;
             doDigrams(Ciphertext);
 

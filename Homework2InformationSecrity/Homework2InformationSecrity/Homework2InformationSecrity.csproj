@@ -85,8 +85,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\Model\Playfair.cs" />
-    <Compile Include="View\Model\Vigenere.cs" />
+    <Compile Include="Model\Playfair.cs" />
+    <Compile Include="Model\Vigenere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
