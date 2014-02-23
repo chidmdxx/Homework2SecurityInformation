@@ -1,10 +1,5 @@
-﻿using System;
+﻿using Homework2InformationSecrity.Dictionaries;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Homework2InformationSecrity.Dictionaries;
 
 namespace Homework2InformationSecrity.Model
 {
