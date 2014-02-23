@@ -74,11 +74,11 @@ namespace Homework2InformationSecrity.Model
             {
                 col = count % 5;
                 row = count / 5;
-                letters = letters.Replace(letter, '-'); //esto es una limitacion del replace(char,char) ya que no deja poner vacio en el segundo char
+                letters = letters.Replace(letter.ToString(), ""); //esto es una limitacion del replace(char,char) ya que no deja poner vacio en el segundo char
                 Matrix[row, col] = letter;
                 count++;
             }
-            letters = letters.Replace("-", ""); //arregla la limitacion cambiando a vacio
+            
             foreach (char letter in letters)
             {
                 col = count % 5;
@@ -96,10 +96,9 @@ namespace Homework2InformationSecrity.Model
                 int ascii = letter;
                 if (ascii < 97 || ascii > 122)
                 {
-                    Plaintext = Plaintext.Replace(letter, '-');
+                    Plaintext = Plaintext.Replace(letter.ToString(), "");
                 }
             }
-            Plaintext = Plaintext.Replace("-", "");
             Ciphertext = string.Empty;
             doDigrams(Plaintext);
 
@@ -141,10 +140,9 @@ namespace Homework2InformationSecrity.Model
                 int ascii = letter;
                 if (ascii < 97 || ascii > 122)
                 {
-                    Ciphertext = Ciphertext.Replace(letter, '-');
+                    Ciphertext = Ciphertext.Replace(letter.ToString(), "");
                 }
             }
-            Ciphertext = Ciphertext.Replace("-", "");
             
             Plaintext = string.Empty;
             doDigrams(Ciphertext);
@@ -174,7 +172,7 @@ namespace Homework2InformationSecrity.Model
                 }
                 Plaintext += string.Format("{0}{1}", firstChar, secondChar);
             }
-
+            Plaintext = Plaintext.Replace(ExtraChar.ToString(), "");
             return Plaintext;
         }
 
