@@ -43,6 +43,14 @@ namespace Homework2InformationSecrity.Model
             set { digrams = value; }
         }
 
+        private string work;
+
+        public string Work
+        {
+            get { return work; }
+            set { work = value; }
+        }
+
         public char ExtraChar
         {
             get { return ValueDictionary.ExtraChar; }
@@ -72,7 +80,7 @@ namespace Homework2InformationSecrity.Model
                 Matrix[row, col] = letter;
                 count++;
             }
-            
+
             foreach (char letter in letters)
             {
                 col = count % 5;
@@ -94,12 +102,14 @@ namespace Homework2InformationSecrity.Model
                 }
             }
             Ciphertext = string.Empty;
+            Work = string.Empty;
             doDigrams(Plaintext);
 
             Cordinate firstCordinate;
             Cordinate secondCordinate;
             char firstChar;
             char secondChar;
+            int count = 0;
             foreach (var pair in Digrams)
             {
                 firstCordinate = getCordinate(pair.First);
@@ -119,6 +129,7 @@ namespace Homework2InformationSecrity.Model
                     firstChar = Matrix[firstCordinate.Row, secondCordinate.Column];
                     secondChar = Matrix[secondCordinate.Row, firstCordinate.Column];
                 }
+                Work += string.Format("{0}. Replaced {1}{2} for {3}{4} \n", ++count, pair.First, pair.Second, firstChar, secondChar);
                 Ciphertext += string.Format("{0}{1}", firstChar, secondChar);
             }
 
@@ -137,7 +148,7 @@ namespace Homework2InformationSecrity.Model
                     Ciphertext = Ciphertext.Replace(letter.ToString(), "");
                 }
             }
-            
+            Work = string.Empty;
             Plaintext = string.Empty;
             doDigrams(Ciphertext);
 
@@ -145,6 +156,7 @@ namespace Homework2InformationSecrity.Model
             Cordinate secondCordinate;
             char firstChar;
             char secondChar;
+            int count = 0;
             foreach (var pair in Digrams)
             {
                 firstCordinate = getCordinate(pair.First);
@@ -164,6 +176,7 @@ namespace Homework2InformationSecrity.Model
                     firstChar = Matrix[firstCordinate.Row, secondCordinate.Column];
                     secondChar = Matrix[secondCordinate.Row, firstCordinate.Column];
                 }
+                Work += string.Format("{0}. Replaced {1}{2} for {3}{4} \n", ++count, pair.First, pair.Second, firstChar, secondChar);
                 Plaintext += string.Format("{0}{1}", firstChar, secondChar);
             }
             Plaintext = Plaintext.Replace(ExtraChar.ToString(), "");

@@ -26,6 +26,15 @@ namespace Homework2InformationSecrity.Model
             set { ciphertext = value; }
         }
 
+        private string work;
+
+        public string Work
+        {
+            get { return work; }
+            set { work = value; }
+        }
+
+
         public Vigenere(string key)
         {
             Key = key;
@@ -37,6 +46,7 @@ namespace Homework2InformationSecrity.Model
         {
             Plaintext = plaintext;
             Ciphertext = string.Empty;
+            Work = string.Empty;
             byte[] plainBytes = Encoding.ASCII.GetBytes(Plaintext);
             byte[] keyBytes = Encoding.ASCII.GetBytes(Key);
             int keyLenght = keyBytes.Length;
@@ -45,7 +55,7 @@ namespace Homework2InformationSecrity.Model
             {
                 int ascii = letter;
                 int k;
-                if (ascii >= 97 && ascii <= 122 )
+                if (ascii >= 97 && ascii <= 122)
                 {
                     k = keyBytes[count++ % keyLenght];
                     k -= 97;
@@ -53,8 +63,9 @@ namespace Homework2InformationSecrity.Model
                     ascii += k;
                     ascii %= 26;
                     ascii += 97;
-                    Ciphertext = Ciphertext + (char)ascii;    
-                }        
+                    Ciphertext = Ciphertext + (char)ascii;
+                    Work += string.Format("{0}. Replaced {1} for {2} with key letter {3} \n", count, (char)letter, (char)ascii, (char)(k + 97));
+                }
             }
             return Ciphertext;
         }
@@ -63,6 +74,7 @@ namespace Homework2InformationSecrity.Model
         {
             Ciphertext = ciphertext;
             Plaintext = string.Empty;
+            Work = string.Empty;
             byte[] cipherBytes = Encoding.ASCII.GetBytes(Ciphertext);
             byte[] keyBytes = Encoding.ASCII.GetBytes(Key);
             int keyLenght = keyBytes.Length;
@@ -80,8 +92,9 @@ namespace Homework2InformationSecrity.Model
                     ascii -= k;
                     ascii %= 26;
                     ascii += 97;
+                    Plaintext = Plaintext + (char)ascii;
+                    Work += string.Format("{0}. Replaced {1} for {2} with key letter {3} \n", count, (char)letter, (char)ascii, (char)(k+97));
                 }
-                Plaintext = Plaintext + (char)ascii;
             }
             return Plaintext;
         }
