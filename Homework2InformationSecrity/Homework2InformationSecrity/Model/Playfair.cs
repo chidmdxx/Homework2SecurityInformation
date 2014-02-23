@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Homework2InformationSecrity.Dictionaries;
 
 namespace Homework2InformationSecrity.Model
 {
@@ -47,19 +48,17 @@ namespace Homework2InformationSecrity.Model
             set { digrams = value; }
         }
 
-        private char extraChar;
         public char ExtraChar
         {
-            get { return extraChar; }
-            set { extraChar = value; }
+            get { return ValueDictionary.ExtraChar; }
+
         }
 
-        public Playfair(string key, char extraChar = 'x')
+        public Playfair(string key)
         {
             Plaintext = string.Empty;
             Ciphertext = string.Empty;
             Key = key;
-            ExtraChar = extraChar;
             CreateMatrix();
         }
 
@@ -256,10 +255,15 @@ namespace Homework2InformationSecrity.Model
             get { return second; }
             set { second = value; }
         }
-        public Digram(char first, char second = 'x')
+        public Digram(char first, char second)
         {
             First = first;
             Second = second;
+        }
+        public Digram(char first)
+        {
+            First = first;
+            Second = ValueDictionary.ExtraChar;
         }
         public Digram()
         {
