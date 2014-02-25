@@ -42,7 +42,7 @@ namespace Homework2InformationSecrity.View
                 foreach (var d in playfair.Digrams){
                     toPrint += string.Format("{0} and {1} \n", d.First,d.Second);
                 }
-                toPrint += string.Format("Work:\n {0} ", playfair.Work);
+                toPrint += string.Format("Work:\n{0}", playfair.Work);
 
                 result.Text = toPrint;
             }
