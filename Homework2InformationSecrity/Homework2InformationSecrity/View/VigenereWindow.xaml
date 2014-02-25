@@ -26,5 +26,6 @@
         <Button Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" IsCancel="True">
             Ok
         </Button>
+        <TextBlock Name="error" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Foreground="Red" TextWrapping="Wrap" />
     </Grid>
 </Window>
