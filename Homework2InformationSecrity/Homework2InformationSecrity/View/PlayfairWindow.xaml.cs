@@ -89,7 +89,7 @@ namespace Homework2InformationSecrity.View
             }
             else
             {
-                error.Text = "Add text to cipher";
+                error.Text = "Add text to decipher";
             }
         }
     }
