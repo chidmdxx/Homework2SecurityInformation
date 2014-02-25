@@ -41,7 +41,7 @@ namespace Homework2InformationSecrity
 
         private void vigenereButton_Click(object sender, RoutedEventArgs e)
         {
-            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text;
+            string keystring = string.IsNullOrEmpty(key.Text) ? string.Empty : key.Text.ToLower();
             if (!string.IsNullOrEmpty(keystring)  && Regex.IsMatch(keystring, "^[a-z]+$"))
             {
                 VigenereWindow window = new VigenereWindow(keystring);

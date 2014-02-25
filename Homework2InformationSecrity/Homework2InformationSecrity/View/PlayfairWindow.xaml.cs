@@ -18,7 +18,7 @@ namespace Homework2InformationSecrity.View
 
         private void cipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint = string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
@@ -50,7 +50,7 @@ namespace Homework2InformationSecrity.View
 
         private void decipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint = string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
