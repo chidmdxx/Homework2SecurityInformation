@@ -59,7 +59,7 @@ namespace Homework2InformationSecrity.View
                 toPrint += string.Format("The cyphertext was: {0} \n", playfair.Ciphertext);
                 toPrint += string.Format("The plaintext is: {0} \n", playfair.Plaintext);
                 toPrint += string.Format("Using the key: {0} \n", playfair.Key);
-                toPrint += string.Format("Using the matrix:\n", playfair.Key);
+                toPrint += string.Format("Using the matrix:\n");
 
                 for (int i = 0; i < 5; i++)
                 {
