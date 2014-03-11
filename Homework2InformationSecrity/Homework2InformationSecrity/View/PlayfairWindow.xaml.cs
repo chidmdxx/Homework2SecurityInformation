@@ -18,11 +18,12 @@ namespace Homework2InformationSecrity.View
 
         private void cipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint = string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
             {
+                error.Text = "";
                 playfair.Cipher(text);
                 toPrint += string.Format("The plaintext was: {0} \n", playfair.Plaintext);
                 toPrint += string.Format("The cyphertext is: {0} \n", playfair.Ciphertext);
@@ -39,22 +40,28 @@ namespace Homework2InformationSecrity.View
 
                 }
                 toPrint += string.Format("Using the following digrams \n");
-                foreach (var d in playfair.Digrams){
-                    toPrint += string.Format("{0} and {1} \n", d.First,d.Second);
+                foreach (var d in playfair.Digrams)
+                {
+                    toPrint += string.Format("{0} and {1} \n", d.First, d.Second);
                 }
                 toPrint += string.Format("Work:\n{0}", playfair.Work);
 
                 result.Text = toPrint;
             }
+            else
+            {
+                error.Text = "Add text to cipher";
+            }
         }
 
         private void decipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint = string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
             {
+                error.Text = "";
                 playfair.Decipher(text);
                 toPrint += string.Format("The cyphertext was: {0} \n", playfair.Ciphertext);
                 toPrint += string.Format("The plaintext is: {0} \n", playfair.Plaintext);
@@ -75,10 +82,14 @@ namespace Homework2InformationSecrity.View
                 {
                     toPrint += string.Format("{0} and {1} \n", d.First, d.Second);
                 }
-                toPrint += string.Format("Work:\n {0} ", playfair.Work);
+                toPrint += string.Format("Work:\n{0} ", playfair.Work);
 
 
                 result.Text = toPrint;
+            }
+            else
+            {
+                error.Text = "Add text to decipher";
             }
         }
     }

@@ -18,33 +18,43 @@ namespace Homework2InformationSecrity.View
 
         private void cipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint=string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
             {
+                error.Text = "";
                 vignere.Cipher(text);
                 toPrint += string.Format("The plaintext was: {0} \n", vignere.Plaintext);
                 toPrint += string.Format("The cyphertext is: {0} \n", vignere.Ciphertext);
                 toPrint += string.Format("Using the key: {0} \n", vignere.Key);
-                toPrint += string.Format("Work:\n {0}", vignere.Work);
+                toPrint += string.Format("Work:\n{0}", vignere.Work);
                 result.Text = toPrint;
+            }
+            else
+            {
+                error.Text = "Add text to cipher";
             }
         }
 
         private void decipherbutton_Click(object sender, RoutedEventArgs e)
         {
-            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text;
+            string text = string.IsNullOrEmpty(textbox.Text) ? string.Empty : textbox.Text.ToLower();
             string toPrint = string.Empty;
             result.Text = toPrint;
             if (!string.IsNullOrEmpty(text))
             {
+                error.Text = "";
                 vignere.Decipher(text);
                 toPrint += string.Format("The cyphertext was: {0} \n", vignere.Ciphertext);
                 toPrint += string.Format("The plaintext is: {0} \n", vignere.Plaintext);
                 toPrint += string.Format("Using the key: {0} \n", vignere.Key);
-                toPrint += string.Format("Work:\n {0}", vignere.Work);
+                toPrint += string.Format("Work:\n{0}", vignere.Work);
                 result.Text = toPrint;
+            }
+            else
+            {
+                error.Text = "Add text to decipher";
             }
         }
     }
